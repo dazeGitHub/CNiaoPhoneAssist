@@ -1,0 +1,167 @@
+apply plugin: 'com.android.application'
+//apply plugin: 'com.neenbedankt.android-apt'//添加apt命令
+apply plugin: 'android-apt'
+
+//读取local.properties中的keystore信息
+def keystoreFilepath = ''
+def keystorePSW = ''
+def keystoreAlias = ''
+def keystoreAliasPSW = ''
+
+// default keystore file, PLZ config file path in local.properties
+def keyfile = file('s.keystore.temp')
+
+Properties properties = new Properties()
+// local.properties file in the root director
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+keystoreFilepath = properties.getProperty("keystore.path")
+
+if(keystoreFilepath){
+    keystorePSW = properties.getProperty("keystore.password")
+    keystoreAlias = properties.getProperty("keystore.alias")
+    keystoreAliasPSW = properties.getProperty("keystore.alias_password")
+    keyfile = file(keystoreFilepath)
+}
+
+
+android {
+    /*注意Configs代码块一定要写在buildTypes前边，否则报错*/
+    signingConfigs {
+        release {
+//          storeFile file('../keystores/myKey.jks')
+//          storePassword 'qwertzxcv'
+//          keyAlias 'myKey'
+//          keyPassword 'qwertzxcv'
+
+            storeFile keyfile
+            storePassword keystorePSW
+            keyAlias keystoreAlias
+            keyPassword keystoreAliasPSW
+
+//            println("====== signingConfigs.release ======")
+        }
+
+        //不能是空的,否则assemble的时候报错：keystore file not set fot signing config SignConfigTest
+//        SignConfigTest {
+//        }
+    }
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion "24.0.3"
+
+    defaultConfig {
+        applicationId "com.cniao5.cniao5play"
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode 1
+        versionName "1.0"
+
+//        signingConfig signingConfigs.release
+    }
+    buildTypes {
+        release {
+            //是否混淆  //minify:缩小
+            minifyEnabled false
+            //是否移除无用资源
+            zipAlignEnabled true
+            //混淆的配置文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//          签名的配置
+
+            //签名文件存在，则签名apk
+            if (keyfile.exists()) {
+                println("WITH -> buildTypes -> release: using jks key")
+                signingConfig signingConfigs.myConfig
+            }else {
+                println("WITH -> buildTypes -> release: using default key")
+            }
+
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                        // 输出apk名称为cniao5_v1.0_wandoujia.apk
+                        def fileName = "cniao5_v${defaultConfig.versionName}_${variant.productFlavors[0].name}.apk"
+                        output.outputFile = new File(outputFile.parent, fileName)
+                    }
+                }
+            }
+        }
+//        buildTypeTest {
+//            signingConfig signingConfigs.SignConfigTest
+//            println("====== buildTypeTest  ======")
+//        }
+    }
+    productFlavors {
+//        kuan {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "kuan"]
+//            applicationId "com.cniao5.cniao5play.kuan"
+//        }
+//        xiaomi {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "xiaomi"]
+//            applicationId "com.cniao5.cniao5play.xiaomi"
+//        }
+//        qh360 {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "qh360"]
+//            applicationId "com.cniao5.cniao5play.qh360"
+//        }
+//        baidu {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "baidu"]
+//            applicationId "com.cniao5.cniao5play.baidu"
+//        }
+        wandoujia {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "wandoujia"]
+            applicationId "com.cniao5.cniao5play.wandoujia"
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    
+    compile rootProject.ext.dependencies["appcompat-v7"]
+    compile rootProject.ext.dependencies["design"]
+    compile rootProject.ext.dependencies['butterknife']
+    apt rootProject.ext.dependencies['butterknife-compiler']
+    compile rootProject.ext.dependencies['retrofit']
+    // 需要升级
+    compile rootProject.ext.dependencies['retrofit-adapter-rxjava']
+    // 需要升级
+    compile rootProject.ext.dependencies['retrofit-converter-gson']
+    compile rootProject.ext.dependencies["okhttp"]
+    // 需要升级
+    compile rootProject.ext.dependencies["okhttp-logging-interceptor"]
+    compile rootProject.ext.dependencies["rxjava"]
+    compile rootProject.ext.dependencies["rxandroid"]
+    compile rootProject.ext.dependencies["rxbinding"]
+    // 需要升级
+
+    //    compile 'com.hwangjr.rxbus:rxbus:1.0.5'  // 去掉
+
+    //    compile 'com.tbruyelle.rxpermissions:rxpermissions:0.9.1@aar'
+    compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.8.2@aar'
+    //降级
+    compile 'com.google.dagger:dagger:2.6'
+    apt 'com.google.dagger:dagger-compiler:2.6'
+    compile 'com.jaeger.statusbaruitl:library:1.2.5'
+    compile('com.mikepenz:materialdrawer:5.6.0@aar') {
+        transitive = true
+    }
+    compile 'com.mikepenz:iconics-core:2.8.1@aar'
+    compile 'com.mikepenz:ionicons-typeface:2.0.1.2@aar'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
+    compile 'jp.wasabeef:glide-transformations:2.0.1'
+    compile 'cn.pedant.sweetalert:library:1.3'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.8.0'
+    compile 'com.zoonref:simple-view-behavior:1.0'
+    compile 'com.ms-square:expandableTextView:0.1.4'
+    //pathview
+    compile 'com.eftimoff:android-pathview:1.0.8@aar'
+    compile 'cn.qqtheme.framework:FilePicker:1.5.1'
+    compile 'com.github.VictorAlbertos.Jolyglot:gson:0.0.3'
+    compile 'com.github.VictorAlbertos.RxCache:runtime:1.8.0-2.x'
+    compile 'com.umeng.analytics:analytics:latest.integration'
+    compile project(path: ':rxdownload')
+    compile files('libs/umeng-analytics-v6.1.1.jar')
+    compile files('libs/utdid4all-1.0.4.jar')
+}

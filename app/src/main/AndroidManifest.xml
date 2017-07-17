@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.cniao5.cniao5play">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:name=".AppApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon">
+        <activity
+            android:name=".ui.activity.WelcomeActivity"
+            android:theme="@style/AppTheme.Notitle.FullScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.activity.LoginActivity"/>
+        <activity
+            android:name=".ui.activity.GuideActivity"
+            android:theme="@style/AppTheme.Notitle.FullScreen"/>
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:theme="@style/AppTheme.Notitle.FullScreen"/>
+
+        <meta-data
+            android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule"
+            android:value="GlideModule"/>
+
+        <activity android:name=".ui.activity.CategoryAppActivity"/>
+        <activity android:name=".ui.activity.AppManagerActivity"/>
+        <activity
+            android:name=".ui.activity.AppDetailActivity"
+            android:theme="@style/AppTheme.Transparent">
+        </activity>
+
+        <receiver
+            android:name=".common.AppInstallReceiver"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+
+                <data android:scheme="package"/>
+                <!-- 注意！！ 这句必须要加，否则接收不到BroadCast -->
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".service.InstallAccessibilityService"
+            android:label="@string/smart_install"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config"/>
+        </service>
+
+        <activity android:name=".ui.activity.HotAppActivity">
+        </activity>
+
+        <activity android:name=".ui.activity.SubjectActivity">
+        </activity>
+
+        <activity android:name=".ui.activity.SearchActivity">
+        </activity>
+
+        <activity android:name=".ui.activity.SettingActivity">
+        </activity>
+
+        <meta-data android:value="5965cc0aaed17916c8000825" android:name="UMENG_APPKEY"/>
+        <!--<meta-data android:value="Wandoujia" android:name="UMENG_CHANNEL"/>-->
+
+        <meta-data android:value="${UMENG_CHANNEL_VALUE}" android:name="UMENG_CHANNEL"/>
+
+    </application>
+
+</manifest>
