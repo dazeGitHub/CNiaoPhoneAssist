@@ -134,40 +134,26 @@ public class CommonParamsInterceptor implements Interceptor {
 
             } else if (method.equals("POST")) {
 
-
                 RequestBody body = request.body();
-
-
                 HashMap<String, Object> rootMap = new HashMap<>();
+
                 if (body instanceof FormBody) { // form 表单
-
+                    //添加原始参数
                     for (int i = 0; i < ((FormBody) body).size(); i++) {
-
                         rootMap.put(((FormBody) body).encodedName(i), ((FormBody) body).encodedValue(i));
                     }
-
                 } else {
-
                     Buffer buffer = new Buffer();
-
                     body.writeTo(buffer);
-
                     String oldJsonParams = buffer.readUtf8();
-
+                    //添加原始参数
                     if (!TextUtils.isEmpty(oldJsonParams)) {
-
-                        rootMap = mGson.fromJson(oldJsonParams, HashMap.class); // 原始参数
-                        if (rootMap != null) {
-                            rootMap.put("publicParams", commomParamsMap); // 重新组装
-                            String newJsonParams = mGson.toJson(rootMap); // {"page":0,"publicParams":{"imei":'xxxxx',"sdk":14,.....}}
-
-                            request = request.newBuilder().post(RequestBody.create(JSON, newJsonParams)).build();
-                        }
+                        rootMap = mGson.fromJson(oldJsonParams, HashMap.class);
                     }
-
-
                 }
-
+                rootMap.put("publicParams", commomParamsMap); // 重新组装
+                String newJsonParams = mGson.toJson(rootMap); // {"page":0,"publicParams":{"imei":'xxxxx',"sdk":14,.....}}
+                request = request.newBuilder().post(RequestBody.create(JSON, newJsonParams)).build();
             }
         } catch (JsonSyntaxException e) {
             e.printStackTrace();
