@@ -58,7 +58,7 @@ public class SubjectActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
 
-//                handNavigation();
+                handNavigation();
             }
         });
 
@@ -71,7 +71,7 @@ public class SubjectActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+//        super.onBackPressed();    //需要把这个注释了,否则一调用super.onBackPressed()直接就回到主页了
         handNavigation();
     }
 

@@ -101,7 +101,7 @@ public class AppManagerModel implements AppManagerContract.IAppManagerModel {
     }
 
 
-    private List<AndroidApk> scanApks(String dir) throws NoDataException {
+    private List<AndroidApk> scanApks(String dir) throws NoDataException {//dir     /storage/emulated/0/Download/
 
 
         File file = new File(dir);

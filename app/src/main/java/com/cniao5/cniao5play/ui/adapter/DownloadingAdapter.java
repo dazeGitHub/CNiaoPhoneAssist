@@ -9,7 +9,7 @@ import com.cniao5.cniao5play.R;
 import com.cniao5.cniao5play.bean.AppInfo;
 import com.cniao5.cniao5play.common.Constant;
 import com.cniao5.cniao5play.common.imageloader.ImageLoader;
-import com.cniao5.cniao5play.ui.widget.DownloadButtonConntroller;
+import com.cniao5.cniao5play.ui.widget.DownloadButtonController;
 import com.cniao5.cniao5play.ui.widget.DownloadProgressButton;
 
 import zlc.season.rxdownload2.RxDownload;
@@ -30,11 +30,11 @@ public class DownloadingAdapter extends BaseQuickAdapter<DownloadRecord,BaseView
 
 
 
-    private DownloadButtonConntroller mDownloadButtonConntroller;
+    private DownloadButtonController mDownloadButtonController;
 
     public DownloadingAdapter(RxDownload rxDownload) {
         super(R.layout.template_app_downloading);
-        mDownloadButtonConntroller = new DownloadButtonConntroller(rxDownload);
+        mDownloadButtonController = new DownloadButtonController(rxDownload);
 
         openLoadAnimation();
     }
@@ -45,7 +45,7 @@ public class DownloadingAdapter extends BaseQuickAdapter<DownloadRecord,BaseView
     protected void convert(BaseViewHolder helper, DownloadRecord item) {
 
 
-        AppInfo appInfo = mDownloadButtonConntroller.downloadRecord2AppInfo(item);
+        AppInfo appInfo = mDownloadButtonController.downloadRecord2AppInfo(item);
 
 
         ImageLoader.load(Constant.BASE_IMG_URL+appInfo.getIcon(), (ImageView) helper.getView(R.id.img_app_icon));
@@ -58,7 +58,7 @@ public class DownloadingAdapter extends BaseQuickAdapter<DownloadRecord,BaseView
         if (viewBtn instanceof  DownloadProgressButton){
 
             DownloadProgressButton btn = (DownloadProgressButton) viewBtn;
-            mDownloadButtonConntroller.handDownloadBtnByDownRecord(btn,item);
+            mDownloadButtonController.handDownloadBtnByDownRecord(btn,item);
         }
 
 

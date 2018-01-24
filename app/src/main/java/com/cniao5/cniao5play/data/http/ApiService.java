@@ -61,10 +61,10 @@ public interface ApiService {
     Observable<BaseBean<PageBean<AppInfo>>> getFeaturedAppsByCategory(@Path("categoryid") int categoryid, @Query("page") int page);
 
     @GET("category/toplist/{categoryid}")
-    Observable<BaseBean<PageBean<AppInfo>>> getTopListAppsByCategory(@Path("categoryid") int categoryid,@Query("page") int page);
+    Observable<BaseBean<PageBean<AppInfo>>> getTopListAppsByCategory(@Path("categoryid") int categoryid, @Query("page") int page);
 
     @GET("category/newlist/{categoryid}")
-    Observable<BaseBean<PageBean<AppInfo>>> getNewListAppsByCategory(@Path("categoryid") int categoryid,@Query("page") int page);
+    Observable<BaseBean<PageBean<AppInfo>>> getNewListAppsByCategory(@Path("categoryid") int categoryid, @Query("page") int page);
 
     @GET("app/{id}")
     Observable<BaseBean<AppInfo>> getAppDetail(@Path("id") int id);
@@ -73,7 +73,7 @@ public interface ApiService {
     Observable<BaseBean<PageBean<AppInfo>>> getHotApps(@Query("page") int page);
 
     @GET("apps/updateinfo")
-    Observable<BaseBean<List<AppInfo>>> getAppsUpdateinfo(@Query("packageName") String packageName,@Query("versionCode") String versionCode);
+    Observable<BaseBean<List<AppInfo>>> getAppsUpdateinfo(@Query("packageName") String packageName, @Query("versionCode") String versionCode);
 
 
     @GET("subject/hot")

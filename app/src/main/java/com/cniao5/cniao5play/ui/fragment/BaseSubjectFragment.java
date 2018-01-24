@@ -20,6 +20,7 @@ public  abstract  class BaseSubjectFragment extends ProgressFragment<SubjectPres
     @Override
     public void showSubjects(PageBean<Subject> subjects) {
 
+
     }
 
     @Override

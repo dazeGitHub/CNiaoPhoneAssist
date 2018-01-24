@@ -1,6 +1,5 @@
 package com.cniao5.cniao5play.ui.fragment;
 
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -39,6 +38,7 @@ import butterknife.BindView;
 
 public class AppDetailFragment extends ProgressFragment<AppDetailPresenter> implements AppInfoContract.AppDetailView {
 
+
     @BindView(R.id.view_gallery)
     LinearLayout mViewGallery;
 
@@ -66,26 +66,18 @@ public class AppDetailFragment extends ProgressFragment<AppDetailPresenter> impl
 
     private AppInfoAdapter mAdapter;
 
-    public AppDetailFragment() {
-
+    private AppDetailFragment(int id) {
+        this.mAppId = id;
     }
 
-    public static AppDetailFragment newInstance(int appId) {
-        AppDetailFragment newFragment = new AppDetailFragment();
-        Bundle bundle = new Bundle();
-        bundle.putInt("appId", appId);
-        newFragment.setArguments(bundle);
-        return newFragment;
+    public static AppDetailFragment newInstance(int id){
+        return new AppDetailFragment(id);
     }
 
 
     @Override
     public void init() {
 
-        Bundle args = getArguments();
-        if (args != null) {
-            this.mAppId = args.getInt("appId");
-        }
         mInflater = LayoutInflater.from(getActivity());
         mPresenter.getAppDetail(mAppId);
     }

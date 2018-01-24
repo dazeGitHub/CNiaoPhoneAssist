@@ -4,8 +4,10 @@
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:adjustViewBounds="true"
-           android:maxWidth="150dp"
-           android:layout_marginRight="2dp"
-           android:scaleType="centerCrop">
+           android:foreground="?android:attr/selectableItemBackground"
+    >
+
+    <!--如果不加adjustViewBounds这个属性,
+        则导致ImageView的图像不能充满ImageView-->
 
 </ImageView>

@@ -10,7 +10,6 @@ import com.cniao5.cniao5play.di.component.DaggerAppComponent;
 import com.cniao5.cniao5play.di.module.AppModule;
 import com.cniao5.cniao5play.di.module.HttpModule;
 import com.mikepenz.iconics.Iconics;
-import com.umeng.analytics.MobclickAgent;
 
 /**
  * 菜鸟窝http://www.cniao5.com 一个高端的互联网技能学习平台
@@ -76,8 +75,9 @@ public class AppApplication extends Application {
 //        EScenarioType eType: 场景模式，包含统计、游戏、统计盒子、游戏盒子
 //        Boolean isCrashEnable: 可选初始化. 是否开启crash模式
 
-        //UMAnalyticsConfig(Context context, String appkey, String channelId, EScenarioType eType)
-        MobclickAgent. startWithConfigure(new MobclickAgent.UMAnalyticsConfig(this,"5965cc0aaed17916c8000825","wandoujia"));
+            //UMAnalyticsConfig(Context context, String appkey, String channelId, EScenarioType eType)
+
+//        MobclickAgent. startWithConfigure(new MobclickAgent.UMAnalyticsConfig(this,"5965cc0aaed17916c8000825","wandoujia"));
 
     }
 

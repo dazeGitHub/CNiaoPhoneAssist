@@ -10,7 +10,7 @@ import com.cniao5.cniao5play.R;
 import com.cniao5.cniao5play.bean.AppInfo;
 import com.cniao5.cniao5play.common.Constant;
 import com.cniao5.cniao5play.common.imageloader.ImageLoader;
-import com.cniao5.cniao5play.ui.widget.DownloadButtonConntroller;
+import com.cniao5.cniao5play.ui.widget.DownloadButtonController;
 import com.cniao5.cniao5play.ui.widget.DownloadProgressButton;
 import com.ms.square.android.expandabletextview.ExpandableTextView;
 
@@ -33,14 +33,14 @@ public class AppInfoAdapter extends BaseQuickAdapter<AppInfo, BaseViewHolder> {
 
     private Builder mBuilder;
 
-    private DownloadButtonConntroller mDownloadButtonConntroller;
+    private DownloadButtonController mDownloadButtonController;
 
     private AppInfoAdapter(Builder builder) {
         super(builder.layoutId);
 
         this.mBuilder = builder;
 
-        mDownloadButtonConntroller = new DownloadButtonConntroller(builder.mRxDownload);
+        mDownloadButtonController = new DownloadButtonController(builder.mRxDownload);
 
         openLoadAnimation();
     }
@@ -77,7 +77,7 @@ public class AppInfoAdapter extends BaseQuickAdapter<AppInfo, BaseViewHolder> {
 
                 DownloadProgressButton btn = (DownloadProgressButton) viewBtn;
                 btn.setTag(R.id.tag_apk_pos, item.getPosition());
-                mDownloadButtonConntroller.handDownloadBtnUpdate(btn, item);
+                mDownloadButtonController.handDownloadBtnUpdate(btn, item);
             }
 
         } else {
@@ -109,7 +109,7 @@ public class AppInfoAdapter extends BaseQuickAdapter<AppInfo, BaseViewHolder> {
 
                 DownloadProgressButton btn = (DownloadProgressButton) viewBtn;
                 btn.setTag(R.id.tag_apk_pos, item.getPosition());
-                mDownloadButtonConntroller.handDownloadBtnByAppInfo(btn, item);
+                mDownloadButtonController.handDownloadBtnByAppInfo(btn, item);
             }
         }
     }

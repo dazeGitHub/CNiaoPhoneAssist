@@ -19,7 +19,6 @@
 
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/view_coordinator"
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background"
@@ -30,7 +29,7 @@
         <android.support.design.widget.AppBarLayout
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="160dp"
             android:fitsSystemWindows="true"
             android:theme="@style/AppTheme.AppBarOverlay">
 
@@ -103,8 +102,8 @@
             app:dependType="y"
             app:dependsOn="@+id/app_bar"
             app:layout_behavior="com.zoonref.SimpleViewBehavior"
-            app:targetX="40dp"
-            app:targetY="12dp"/>
+            app:targetX="36dp"
+            app:targetY="-12dp"/>
 
 
     </android.support.design.widget.CoordinatorLayout>

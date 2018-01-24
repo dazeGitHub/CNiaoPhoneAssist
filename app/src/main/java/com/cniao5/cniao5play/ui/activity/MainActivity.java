@@ -151,7 +151,6 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         mFragments.add(new FragmentInfo("推荐", RecommendFragment.class));
         mFragments.add(new FragmentInfo("排行", TopListFragment.class));
 
-
         mFragments.add(new FragmentInfo("游戏", GamesFragment.class));
         mFragments.add(new FragmentInfo("分类", CategoryFragment.class));
 

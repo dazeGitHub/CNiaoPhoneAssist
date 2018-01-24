@@ -90,10 +90,10 @@
         <activity android:name=".ui.activity.SettingActivity">
         </activity>
 
-        <meta-data android:value="5965cc0aaed17916c8000825" android:name="UMENG_APPKEY"/>
-        <!--<meta-data android:value="Wandoujia" android:name="UMENG_CHANNEL"/>-->
+        <!--<meta-data android:value="5965cc0aaed17916c8000825" android:name="UMENG_APPKEY"/>-->
+        <!--&lt;!&ndash;<meta-data android:value="Wandoujia" android:name="UMENG_CHANNEL"/>&ndash;&gt;-->
 
-        <meta-data android:value="${UMENG_CHANNEL_VALUE}" android:name="UMENG_CHANNEL"/>
+        <!--<meta-data android:value="${UMENG_CHANNEL_VALUE}" android:name="UMENG_CHANNEL"/>-->
 
     </application>
 

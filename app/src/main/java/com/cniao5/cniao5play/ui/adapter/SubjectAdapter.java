@@ -23,7 +23,7 @@ import com.cniao5.cniao5play.common.Constant;
 public class SubjectAdapter extends BaseQuickAdapter<Subject,BaseViewHolder> {
 
     public SubjectAdapter() {
-        super(R.layout.template_imageview);
+        super(R.layout.template_subject_imageview);
     }
 
     @Override

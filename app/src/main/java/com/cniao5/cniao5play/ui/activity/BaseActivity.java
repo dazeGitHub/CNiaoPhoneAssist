@@ -10,7 +10,6 @@ import com.cniao5.cniao5play.di.component.AppComponent;
 import com.cniao5.cniao5play.presenter.BasePresenter;
 import com.cniao5.cniao5play.ui.BaseView;
 import com.mikepenz.iconics.context.IconicsLayoutInflater;
-import com.umeng.analytics.MobclickAgent;
 
 import javax.inject.Inject;
 
@@ -58,13 +57,13 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     @Override
     protected void onResume() {
         super.onResume();
-        MobclickAgent.onResume(this);
+//        MobclickAgent.onResume(this);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        MobclickAgent.onPause(this);
+//        MobclickAgent.onPause(this);
     }
 
     @Override

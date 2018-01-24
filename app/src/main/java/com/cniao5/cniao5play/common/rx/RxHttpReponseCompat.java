@@ -34,14 +34,10 @@ public class RxHttpReponseCompat {
         return new ObservableTransformer<BaseBean<T>, T>() {
             @Override
             public ObservableSource<T> apply(Observable<BaseBean<T>> baseBeanObservable) {
-
                 return baseBeanObservable.flatMap(new Function<BaseBean<T>, ObservableSource<T>>() {
                     @Override
                     public ObservableSource<T> apply(@NonNull final BaseBean<T> tBaseBean) throws Exception {
-
                         if (tBaseBean.success()) {
-
-
                             return Observable.create(new ObservableOnSubscribe<T>() {
                                 @Override
                                 public void subscribe(ObservableEmitter<T> subscriber) throws Exception {

@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Cniao5Play.iml" filepath="$PROJECT_DIR$/Cniao5Play.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CNiaoPhoneAssist.iml" filepath="$PROJECT_DIR$/CNiaoPhoneAssist.iml" />
+      <module fileurl="file://E:\AndroidProject\Cniao5Play12_14\CNiao5PlayCheckOut\CNiaoPhoneAssist\Cniao5Play.iml" filepath="E:\AndroidProject\Cniao5Play12_14\CNiao5PlayCheckOut\CNiaoPhoneAssist\Cniao5Play.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/rxdownload2/rxdownload.iml" filepath="$PROJECT_DIR$/rxdownload2/rxdownload.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myapplication/myapplication.iml" filepath="$PROJECT_DIR$/myapplication/myapplication.iml" />
+      <module fileurl="file://E:\AndroidProject\Cniao5Play12_14\CNiao5PlayCheckOut\CNiaoPhoneAssist\rxdownload2\rxdownload.iml" filepath="E:\AndroidProject\Cniao5Play12_14\CNiao5PlayCheckOut\CNiaoPhoneAssist\rxdownload2\rxdownload.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rxdownload2/rxdownload2.iml" filepath="$PROJECT_DIR$/rxdownload2/rxdownload2.iml" />
     </modules>
   </component>
 </project>

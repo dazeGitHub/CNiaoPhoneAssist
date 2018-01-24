@@ -29,7 +29,7 @@ import com.mikepenz.ionicons_typeface_library.Ionicons;
 
 import butterknife.BindView;
 
-public class AppDetailActivity extends BaseActivity<AppDetailPresenter>  {
+public class AppDetailActivity extends BaseActivity<AppDetailPresenter> {
 
 
 
@@ -117,7 +117,7 @@ public class AppDetailActivity extends BaseActivity<AppDetailPresenter>  {
 
         ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(mViewTemp.getLayoutParams());
 
-        marginLayoutParams.topMargin=top-DensityUtil.getStatusBarH(this);
+        marginLayoutParams.topMargin=top- DensityUtil.getStatusBarH(this);
         marginLayoutParams.leftMargin = left;
         marginLayoutParams.width = view.getWidth();
         marginLayoutParams.height =view.getHeight();
@@ -144,7 +144,7 @@ public class AppDetailActivity extends BaseActivity<AppDetailPresenter>  {
         ObjectAnimator animator = ObjectAnimator.ofFloat(mViewTemp,"scaleY",1f,(float) h);
 
         animator.setStartDelay(500);
-        animator.setDuration(100);
+        animator.setDuration(1000);
         animator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationStart(Animator animation) {

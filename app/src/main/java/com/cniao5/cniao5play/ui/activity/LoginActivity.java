@@ -1,11 +1,8 @@
 package com.cniao5.cniao5play.ui.activity;
 
-import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.widget.Toolbar;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.cniao5.cniao5play.R;
 import com.cniao5.cniao5play.bean.LoginBean;
@@ -15,7 +12,6 @@ import com.cniao5.cniao5play.di.module.LoginModule;
 import com.cniao5.cniao5play.presenter.LoginPresenter;
 import com.cniao5.cniao5play.presenter.contract.LoginContract;
 import com.cniao5.cniao5play.ui.widget.LoadingButton;
-
 import com.jakewharton.rxbinding2.InitialValueObservable;
 import com.jakewharton.rxbinding2.view.RxView;
 import com.jakewharton.rxbinding2.widget.RxTextView;
@@ -24,7 +20,6 @@ import com.mikepenz.ionicons_typeface_library.Ionicons;
 
 import butterknife.BindView;
 import io.reactivex.Observable;
-import io.reactivex.Observer;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.BiFunction;
 import io.reactivex.functions.Consumer;
@@ -55,7 +50,6 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     @Override
     public void setupAcitivtyComponent(AppComponent appComponent) {
-
 
         DaggerLoginComponent.builder().appComponent(appComponent).loginModule(new LoginModule(this))
                 .build().inject(this);

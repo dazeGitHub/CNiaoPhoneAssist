@@ -149,6 +149,10 @@ public class IndexMultipleAdapter extends RecyclerView.Adapter<RecyclerView.View
         } else {
             AppViewHolder viewHolder = (AppViewHolder) holder;
 
+            //Adapter就在这创建，别想着在onCreate的时候创建，如果多个类型，多个ViewHolder是同一种类型，导致一个全局adapter引用多次被赋值,导致还没滑到上一个条目图片闪动异常,
+            //即使使用setTag页白扯，因为不是异步问题,
+            //如果在这里使用holder.getAdapter().notifyDataSetChange()也不行，RecyclerView会报错：不能在滑动的时候调用notifyDataSetChange方法！
+            //所以单个类型在onCreateViewHolder()的时候调用时暂时可以的，但是多个类型只能如下创建然后setAdapter()
 
             final AppInfoAdapter appInfoAdapter = AppInfoAdapter.builder()
                     .showBrief(true)
@@ -250,6 +254,7 @@ public class IndexMultipleAdapter extends RecyclerView.Adapter<RecyclerView.View
 
             this.type = type;
 
+            //这个方法是在onCreateViewHolder的时候调用的,从而防止重复设置ItemDecoration导致间距过大
             initRecyclerView();
 
 

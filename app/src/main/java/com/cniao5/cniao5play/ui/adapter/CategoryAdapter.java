@@ -22,18 +22,9 @@ import com.cniao5.cniao5play.common.imageloader.ImageLoader;
 
 public class CategoryAdapter extends BaseQuickAdapter<Category,BaseViewHolder> {
 
-
-
-
-
     public CategoryAdapter() {
-
         super(R.layout.template_category);
-
     }
-
-
-
 
     @Override
     protected void convert(BaseViewHolder helper, Category item) {
@@ -42,9 +33,5 @@ public class CategoryAdapter extends BaseQuickAdapter<Category,BaseViewHolder> {
 
         ImageLoader.load(Constant.BASE_IMG_URL+item.getIcon(), (ImageView) helper.getView(R.id.img_icon));
     }
-
-
-
-
 
 }
