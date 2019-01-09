@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_search"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:gravity="center_vertical"
+        android:minHeight="?attr/actionBarSize"
+        android:paddingLeft="@dimen/dp_10"
+        android:paddingRight="@dimen/dp_10"
+        android:theme="@style/AppTheme.ToolBar"
+
+        >
+
+        <RelativeLayout
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/searchview_bg">
+
+            <EditText
+                android:id="@+id/searchTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="@string/search_hint"
+                android:imeOptions="actionSearch"
+                android:inputType="textNoSuggestions"
+                android:maxLines="1"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/background"
+                android:textSize="16sp"/>
+
+
+            <ImageView
+                android:id="@+id/action_clear_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:background="?android:attr/selectableItemBackground"
+                android:visibility="gone"
+                />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <LinearLayout
+        android:id="@+id/layout_history"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="历时记录"/>
+
+            <ImageView
+                android:id="@+id/btn_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"/>
+
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view_history"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:elevation="1dp"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="vertical"/>
+
+    </LinearLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view_suggestion"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:elevation="1dp"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbars="vertical"
+        android:visibility="gone"
+        />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view_result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:elevation="1dp"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbars="vertical"
+        android:visibility="gone"/>
+
+
+</LinearLayout>
