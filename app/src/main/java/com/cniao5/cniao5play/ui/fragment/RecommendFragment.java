@@ -32,6 +32,11 @@ public class RecommendFragment extends ProgressFragment<RecommendPresenter>  imp
     private IndexMultipleAdapter mAdatper;
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 32674bc4d54d9e98a16c6edff476a379d3872a4c
     @Inject
     RxDownload mRxDownload;
 
@@ -44,6 +49,10 @@ public class RecommendFragment extends ProgressFragment<RecommendPresenter>  imp
     public void setupAcitivtyComponent(AppComponent appComponent) {
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 32674bc4d54d9e98a16c6edff476a379d3872a4c
         DaggerRecommendComponent.builder().appComponent(appComponent)
                 .remmendModule(new RemmendModule(this)).build().inject(this);
     }

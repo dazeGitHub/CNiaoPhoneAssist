@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ext {
 
     android = [
@@ -39,4 +40,61 @@ ext {
             "rxbinding"                 : "com.jakewharton.rxbinding2:rxbinding:${android["rxbindingVersion"]}",
 
     ]
+=======
+ext{
+
+
+
+
+    android=[
+
+            compileSdkVersion       : 24,
+            buildToolsVersion       : "25.0.2",
+            minSdkVersion           : 15,
+            targetSdkVersion        : 23,
+            versionCode             : 1,
+            versionName             : "1.0",
+
+
+            androidSupportVersion   : "25.2.0",
+            retrofitVersion         : "2.2.0",
+            butterknifeVersion      : "8.5.1",
+            rxJavaVersion           : "2.0.7",
+            rxAndroidVersion        : "2.0.1",
+            rxbindingVersion        : "2.0.0",
+            okhttpVersion           : "3.6.0",
+
+    ]
+
+
+
+    dependencies=[
+
+            "appcompat-v7"                       : "com.android.support:appcompat-v7:${android["androidSupportVersion"]}",
+            "design"                            : "com.android.support:design:${android["androidSupportVersion"]}",
+
+            "retrofit"                          : "com.squareup.retrofit2:retrofit:${android["retrofitVersion"]}",
+            "retrofit-adapter-rxjava"           : "com.squareup.retrofit2:adapter-rxjava2:${android["retrofitVersion"]}",
+            "retrofit-converter-gson"           : "com.squareup.retrofit2:converter-gson:${android["retrofitVersion"]}",
+
+            "okhttp"                               : "com.squareup.okhttp3:okhttp:${android["okhttpVersion"]}",
+            "okhttp-logging-interceptor"           : "com.squareup.okhttp3:logging-interceptor:${android["okhttpVersion"]}",
+
+
+
+            "butterknife"                       : "com.jakewharton:butterknife:${android["butterknifeVersion"]}",
+            "butterknife-compiler"              : "com.jakewharton:butterknife-compiler:${android["butterknifeVersion"]}",
+
+            "rxjava"                             : "io.reactivex.rxjava2:rxjava:${android["rxJavaVersion"]}",
+            "rxandroid"                          : "io.reactivex.rxjava2:rxandroid:${android["rxAndroidVersion"]}",
+            "rxbinding"                          : "com.jakewharton.rxbinding2:rxbinding:${android["rxbindingVersion"]}",
+
+    ]
+
+
+
+
+
+
+>>>>>>> 32674bc4d54d9e98a16c6edff476a379d3872a4c
 }

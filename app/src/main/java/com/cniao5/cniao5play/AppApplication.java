@@ -24,8 +24,20 @@ import com.mikepenz.iconics.Iconics;
 public class AppApplication extends Application {
 
 
+<<<<<<< HEAD
     private View mView;
     private AppComponent mAppComponent;
+=======
+
+
+    private View mView;
+
+
+    private AppComponent mAppComponent;
+
+
+
+>>>>>>> 32674bc4d54d9e98a16c6edff476a379d3872a4c
     public static AppApplication get(Context context){
         return (AppApplication)context.getApplicationContext();
     }

@@ -30,7 +30,11 @@ public class RxHttpReponseCompat {
 
     public static <T> ObservableTransformer<BaseBean<T>, T> compatResult() {
 
+<<<<<<< HEAD
         //将 Observable<BaseBean<T>> 转换为 ObservableSource<T> 类型
+=======
+
+>>>>>>> 32674bc4d54d9e98a16c6edff476a379d3872a4c
         return new ObservableTransformer<BaseBean<T>, T>() {
             @Override
             public ObservableSource<T> apply(Observable<BaseBean<T>> baseBeanObservable) {
@@ -62,6 +66,7 @@ public class RxHttpReponseCompat {
 
     }
 
+<<<<<<< HEAD
     public <T> ObservableTransformer<T, T> transformer() {
         return new ObservableTransformer<T, T>() {
             @Override
@@ -71,6 +76,8 @@ public class RxHttpReponseCompat {
         };
     }
 
+=======
+>>>>>>> 32674bc4d54d9e98a16c6edff476a379d3872a4c
 //
 //
 //

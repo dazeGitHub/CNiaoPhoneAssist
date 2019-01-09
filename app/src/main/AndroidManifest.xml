@@ -22,9 +22,13 @@
         tools:replace="android:icon">
         <activity
             android:name=".ui.activity.WelcomeActivity"
+<<<<<<< HEAD
             android:theme="@style/AppTheme.Notitle.FullScreen"
             android:launchMode="singleTask"
             >
+=======
+            android:theme="@style/AppTheme.Notitle.FullScreen">
+>>>>>>> 32674bc4d54d9e98a16c6edff476a379d3872a4c
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

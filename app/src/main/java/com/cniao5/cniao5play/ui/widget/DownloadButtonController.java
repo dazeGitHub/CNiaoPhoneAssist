@@ -8,6 +8,10 @@ import com.cniao5.cniao5play.bean.AppDownloadInfo;
 import com.cniao5.cniao5play.bean.AppInfo;
 import com.cniao5.cniao5play.bean.BaseBean;
 import com.cniao5.cniao5play.common.Constant;
+<<<<<<< HEAD
+=======
+import com.cniao5.cniao5play.common.apkparset.AndroidApk;
+>>>>>>> 32674bc4d54d9e98a16c6edff476a379d3872a4c
 import com.cniao5.cniao5play.common.rx.RxHttpReponseCompat;
 import com.cniao5.cniao5play.common.rx.RxSchedulers;
 import com.cniao5.cniao5play.common.util.ACache;
@@ -132,6 +136,7 @@ public class DownloadButtonController {
                     }
                 }).flatMap(new Function<DownloadEvent, ObservableSource<DownloadEvent>>() {
 
+<<<<<<< HEAD
                     @Override
                     public ObservableSource<DownloadEvent> apply(@NonNull DownloadEvent downloadEvent) throws Exception {
 
@@ -149,6 +154,31 @@ public class DownloadButtonController {
                         //NORMAL(不存在),INSTALLED
                         return Observable.just(downloadEvent);
                     }
+=======
+            @Override
+            public ObservableSource<DownloadEvent> apply(@NonNull DownloadEvent downloadEvent) throws Exception {
+                //FILE_EXIST
+                if (DownloadFlag.FILE_EXIST == downloadEvent.getFlag()) {
+                    //包完整
+                    if (AndroidApk.read(btn.getContext(), getApkFilePath(btn.getContext(), appInfo)) != null) {
+                        downloadEvent.setFlag(DownloadFlag.COMPLETED);
+                        return Observable.just(downloadEvent);
+                    } else {
+                        //包不完整则使用 Rxdownload 判断状态
+                        return getAppDownloadInfo(appInfo).flatMap(new Function<AppDownloadInfo, ObservableSource<DownloadEvent>>() {
+                            @Override
+                            public ObservableSource<DownloadEvent> apply(@NonNull AppDownloadInfo appDownloadInfo) throws Exception {
+
+                                appInfo.setAppDownloadInfo(appDownloadInfo);
+                                return receiveDownloadStatus(appDownloadInfo.getDownloadUrl());
+                            }
+                        });
+                    }
+                }
+                //NORMAL,INSTALLED
+                return Observable.just(downloadEvent);
+            }
+>>>>>>> 32674bc4d54d9e98a16c6edff476a379d3872a4c
         })
                 .compose(RxSchedulers.<DownloadEvent>io_main())
                 .subscribe(new DownloadConsumer(btn, appInfo));
@@ -332,14 +362,26 @@ public class DownloadButtonController {
     }
 
     public Observable<DownloadEvent> isApkFileExsit(Context context, AppInfo appInfo) {
+<<<<<<< HEAD
         String path = ACache.get(context).getAsString(Constant.APK_DOWNLOAD_DIR) + File.separator + appInfo.getReleaseKeyHash() + ".apk";
         File file = new File(path);
 
+=======
+        File file = new File(getApkFilePath(context, appInfo));
+>>>>>>> 32674bc4d54d9e98a16c6edff476a379d3872a4c
         DownloadEvent event = new DownloadEvent();
         event.setFlag(file.exists() ? DownloadFlag.FILE_EXIST : DownloadFlag.NORMAL);
         return Observable.just(event);
     }
 
+<<<<<<< HEAD
+=======
+    private String getApkFilePath(Context context, AppInfo appInfo) {
+        String path = ACache.get(context).getAsString(Constant.APK_DOWNLOAD_DIR) + File.separator + appInfo.getReleaseKeyHash() + ".apk";
+        return path;
+    }
+
+>>>>>>> 32674bc4d54d9e98a16c6edff476a379d3872a4c
     /**
      * 根据AppDownloadInfo的url获取该App下载状态
      *

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="zlc.season.rxdownload2">
 
@@ -7,3 +8,14 @@
     </application>
 
 </manifest>
+=======
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="zlc.season.rxdownload2">
+
+    <application>
+        <service
+            android:name="zlc.season.rxdownload2.function.DownloadService"/>
+    </application>
+
+</manifest>
+>>>>>>> 32674bc4d54d9e98a16c6edff476a379d3872a4c

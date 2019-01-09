@@ -1,8 +1,13 @@
 package com.cniao5.cniao5play.presenter;
 
 import android.app.Activity;
+<<<<<<< HEAD
 import android.app.Fragment;
 import android.content.Context;
+=======
+import android.content.Context;
+import android.support.v4.app.Fragment;
+>>>>>>> 32674bc4d54d9e98a16c6edff476a379d3872a4c
 
 import com.cniao5.cniao5play.ui.BaseView;
 

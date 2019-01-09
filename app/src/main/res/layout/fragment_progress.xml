@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              android:id="@id/rootView"
+<<<<<<< HEAD
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              android:orientation="vertical">
+=======
+             android:orientation="vertical"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+>>>>>>> 32674bc4d54d9e98a16c6edff476a379d3872a4c
 
 
     <LinearLayout
         android:id="@+id/view_progress"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+<<<<<<< HEAD
         android:layout_gravity="center"
         android:gravity="center"
+=======
+        android:gravity="center"
+        android:layout_gravity="center"
+>>>>>>> 32674bc4d54d9e98a16c6edff476a379d3872a4c
         android:orientation="vertical"
         android:visibility="gone">
 
@@ -39,6 +51,13 @@
         android:layout_height="match_parent"
         >
 
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> 32674bc4d54d9e98a16c6edff476a379d3872a4c
     </FrameLayout>
 
     <LinearLayout
@@ -48,6 +67,10 @@
         android:gravity="center"
         android:visibility="gone">
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 32674bc4d54d9e98a16c6edff476a379d3872a4c
         <TextView
             android:id="@+id/text_tip"
             android:layout_width="wrap_content"
@@ -57,4 +80,8 @@
     </LinearLayout>
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 32674bc4d54d9e98a16c6edff476a379d3872a4c
 </FrameLayout>
